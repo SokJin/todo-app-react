@@ -1,16 +1,16 @@
 # todo-app-react
+シンプルなToDoリストを作成・管理できるウェブアプリケーションです。
+ReactとNext.jsをベースに構築されており、ユーザーはタスクの追加、削除、完了処理が可能です。
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+## 主な機能
+- 新しいタスクの追加
+- タスクの完了・削除機能
+- ダークモードの切り替え
 
-## Getting Started
-
-First, run the development server:
+## はじめに
+開発サーバーを起動するには、以下のコマンドを実行してください：
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+```

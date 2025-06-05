@@ -1,10 +1,19 @@
-// pages/index.js or pages/index.tsx
 import React from 'react';
+import TodoTemplate from '@/components/TodoTemplate.tsx';
+import TodoInsert from '@/components/TodoInsert';
+import TodoList from '@/components/TodoList';
+import '../styles/globals.css';
+
 
 export default function Home() {
   return (
-    <div>
-      <h1>Hello, Next.js!</h1>
-    </div>
+    <main>
+        <div>
+            <TodoTemplate>
+                <TodoInsert/>
+                <TodoList/>
+            </TodoTemplate>
+        </div>
+    </main>
   );
 }

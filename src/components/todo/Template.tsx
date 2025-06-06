@@ -4,7 +4,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export default function TodoTemplate({ children }: Props) {
+export default function Template({ children }: Props) {
   return (
    <div>
 		<header>

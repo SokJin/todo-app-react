@@ -1,7 +1,7 @@
 import React from 'react';
-import TodoTemplate from '@/components/todo/Template';
-import TodoInsert from '@/components/todo/Insert';
-import TodoList from '@/components/todo/List';
+import Template from '@/components/todo/Template';
+import Insert from '@/components/todo/Insert';
+import List from '@/components/todo/List';
 import '../styles/globals.css';
 
 
@@ -9,10 +9,10 @@ export default function Home() {
   return (
 	<main>
 		<div>
-			<TodoTemplate>
-				<TodoInsert/>
-				<TodoList/>
-			</TodoTemplate>
+			<Template>
+				<Insert/>
+				<List/>
+			</Template>
 		</div>
 	</main>
   );

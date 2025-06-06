@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 export default function Insert() {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState<string>('');
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);

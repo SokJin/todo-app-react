@@ -7,8 +7,10 @@ type Props = {
 export default function TodoTemplate({ children }: Props) {
   return (
    <div>
-      <h1>TODOLIST</h1>
-      {children}
+		<header>
+			<h1>TODOLIST</h1>
+		</header>
+    	{children}
     </div>
   );
 }

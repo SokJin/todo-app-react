@@ -15,6 +15,8 @@ export default function Insert() {
   return (
     <div>
       <input
+	  	id ="todo-input"
+		name ="todo"
         type="text"
         value={inputValue}
         onChange={onChange}

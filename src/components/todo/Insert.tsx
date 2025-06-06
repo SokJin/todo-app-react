@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function TodoInsert() {
+export default function Insert() {
   const [inputValue, setInputValue] = useState('');
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {

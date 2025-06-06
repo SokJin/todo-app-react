@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function TodoList() {
+export default function List() {
   const tempTodos = [
     { id: 1, text: 'タスク1'},
     { id: 2, text: 'タスク2'},

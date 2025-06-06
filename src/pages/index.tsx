@@ -2,7 +2,6 @@ import React from 'react';
 import Template from '@/components/todo/Template';
 import Insert from '@/components/todo/Insert';
 import List from '@/components/todo/List';
-import '../styles/globals.css';
 
 
 export default function Home() {

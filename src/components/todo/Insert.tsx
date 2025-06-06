@@ -21,10 +21,10 @@ export default function Insert() {
         value={inputValue}
         onChange={onChange}
         placeholder="入力してください"
-        className="border border-gray-300 rounded px-3 py-2 w-64 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className=""
       />
       <button onClick={handleClick}
-        className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+        className=""
      >
         追加</button>
     </div>

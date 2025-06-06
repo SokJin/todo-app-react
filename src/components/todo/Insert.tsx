@@ -15,18 +15,20 @@ export default function Insert() {
   return (
     <div>
       <input
-	  	id ="todo-input"
-		name ="todo"
+        id="todo-input"
+        name="todo"
         type="text"
         value={inputValue}
         onChange={onChange}
         placeholder="入力してください"
         className="border border-gray-300 rounded px-3 py-2 w-64 focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
-      <button onClick={handleClick}
+      <button
+        onClick={handleClick}
         className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-     >
-        追加</button>
+      >
+        追加
+      </button>
     </div>
   );
 }

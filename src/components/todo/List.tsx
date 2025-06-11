@@ -22,7 +22,7 @@ export default function List({ items, setItems }: ListProps) {
           <span>{item.text}</span>
           <button
             onClick={() => handleDelete(item.id)}
-            className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded text-sm"
+            className="bg-red-500 px-3 py-2 text-sm font-medium text-white rounded transition-colors whitespace-nowrap ml-auto"
           >
             削除
           </button>

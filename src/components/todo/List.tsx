@@ -1,6 +1,6 @@
 import React from 'react';
 
-type Item = { id: number; text: string };
+type Item = { id: string; text: string };
 
 type ListProps = {
   items: Item[];
@@ -8,7 +8,7 @@ type ListProps = {
 };
 
 export default function List({ items, setItems }: ListProps) {
-  const handleDelete = (id: number) => {
+  const handleDelete = (id: string) => {
     const newItems = items.filter((item) => item.id !== id);
     setItems(newItems);
     localStorage.setItem('todo-items', JSON.stringify(newItems));

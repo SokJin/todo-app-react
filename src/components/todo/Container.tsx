@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Template from './Template';
 import Insert from './Insert';
 import List from './List';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Container() {
-  const [items, setItems] = useState<{ id: number; text: string }[]>([]);
+  const [items, setItems] = useState<{ id: string; text: string }[]>([]);
   const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
@@ -16,7 +17,9 @@ export default function Container() {
 
   const handleClick = () => {
     if (inputValue.trim() === '') return;
-    const newItem = { id: Date.now(), text: inputValue };
+    const id = uuidv4();
+    console.log('UUID 生成:', id);
+    const newItem = { id: id, text: inputValue };
     const newItems = [...items, newItem];
     setItems(newItems);
     localStorage.setItem('todo-items', JSON.stringify(newItems));

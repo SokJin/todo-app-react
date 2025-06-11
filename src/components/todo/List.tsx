@@ -1,19 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-export default function List() {
-  const [items, setItems] = useState<{ id: number; text: string }[]>([]);
+type Item = { id: number; text: string };
 
-  useEffect(() => {
-    const storedItems = localStorage.getItem('todo-items');
-    if (storedItems) {
-      setItems(JSON.parse(storedItems));
-    }
-  }, []);
+type ListProps = {
+  items: Item[];
+  setItems: (items: Item[]) => void;
+};
 
-  useEffect(() => {
-    localStorage.setItem('todo-items', JSON.stringify(items));
-  }, [items]);
-
+export default function List({ items, setItems }: ListProps) {
   const handleDelete = (index: number) => {
     setItems(items.filter((item, i) => i !== index));
   };

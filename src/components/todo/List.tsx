@@ -9,7 +9,9 @@ type ListProps = {
 
 export default function List({ items, setItems }: ListProps) {
   const handleDelete = (id: number) => {
-    setItems(items.filter((item) => item.id !== id));
+    const newItems = items.filter((item) => item.id !== id);
+    setItems(newItems);
+    localStorage.setItem('todo-items', JSON.stringify(newItems));
   };
 
   return (

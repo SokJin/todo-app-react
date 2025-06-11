@@ -1,24 +1,16 @@
-import React, { useState } from 'react';
-
-type Item = { id: number; text: string };
-
 type InsertProps = {
-  items: Item[];
-  setItems: (items: Item[]) => void;
+  inputValue: string;
+  setInputValue: (value: string) => void;
+  handleClick: () => void;
 };
 
-export default function Insert({ items, setItems }: InsertProps) {
-  const [inputValue, setInputValue] = useState('');
-
+export default function Insert({
+  inputValue,
+  setInputValue,
+  handleClick,
+}: InsertProps) {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
-  };
-
-  const handleClick = () => {
-    if (inputValue.trim() === '') return;
-    const newItem = { id: Date.now(), text: inputValue };
-    setItems([...items, newItem]);
-    setInputValue('');
   };
 
   return (

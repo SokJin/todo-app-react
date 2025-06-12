@@ -1,6 +1,5 @@
 import React from 'react';
-
-type Item = { id: string; text: string };
+import { Item } from '@/types/type';
 
 type ListProps = {
   items: Item[];

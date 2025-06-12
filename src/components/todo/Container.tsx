@@ -5,7 +5,7 @@ import List from './List';
 import { v4 as uuidv4 } from 'uuid';
 import { Item } from '@/types/type';
 
-export default function Container() {
+export default function Container(): React.ReactElement {
   const [items, setItems] = useState<Item[]>([]);
   const [inputValue, setInputValue] = useState('');
 
@@ -16,9 +16,9 @@ export default function Container() {
     }
   }, []);
 
-  const handleClick = () => {
+  const handleClick: () => void = () => {
     if (inputValue.trim() === '') return;
-    const newItem = { id: uuidv4(), text: inputValue };
+    const newItem: Item = { id: uuidv4(), text: inputValue };
     const newItems = [...items, newItem];
     setItems(newItems);
     localStorage.setItem('todo-items', JSON.stringify(newItems));

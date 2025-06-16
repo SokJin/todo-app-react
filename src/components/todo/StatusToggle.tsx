@@ -1,9 +1,7 @@
-import React from 'react';
-
-interface StatusToggleProps {
+type StatusToggleProps = {
   completed: boolean;
   onToggle: () => void;
-}
+};
 
 const StatusToggle = ({ completed, onToggle }: StatusToggleProps) => {
   return (

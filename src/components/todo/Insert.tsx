@@ -1,3 +1,5 @@
+import { FaPlus } from 'react-icons/fa';
+
 type InsertProps = {
   inputValue: string;
   setInputValue: (value: string) => void;
@@ -28,7 +30,7 @@ export default function Insert({
         onClick={handleClick}
         className="flex items-center bg-blue-500 hover:bg-blue-600 px-3 py-2 text-sm font-medium text-white rounded transition-colors"
       >
-        追加
+        <FaPlus className="mr-3" /> 追加
       </button>
     </div>
   );

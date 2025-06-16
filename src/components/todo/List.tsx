@@ -1,6 +1,7 @@
 import React from 'react';
 import StatusToggle from './StatusToggle';
 import { Item } from '@/types/type';
+import { FaTrash } from 'react-icons/fa';
 
 type ListProps = {
   items: Item[];
@@ -35,8 +36,9 @@ export default function List({ items, setItems, onToggle }: ListProps) {
             <button
               onClick={() => handleDelete(item.id)}
               className="bg-red-500 p-2 text-white rounded transition-colors hover:bg-red-600 flex items-center justify-center"
+              aria-label="削除"
             >
-              削除
+              <FaTrash />
             </button>
           </div>
         </li>

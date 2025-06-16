@@ -18,11 +18,19 @@ export default function Container() {
 
   const handleClick: () => void = () => {
     if (inputValue.trim() === '') return;
-    const newItem: Item = { id: uuidv4(), text: inputValue };
+    const newItem: Item = { id: uuidv4(), text: inputValue, completed: false };
     const newItems = [...items, newItem];
     setItems(newItems);
     localStorage.setItem('todo-items', JSON.stringify(newItems));
     setInputValue('');
+  };
+
+  const handleToggle = (id: string) => {
+    const updatedItems = items.map((item) =>
+      item.id === id ? { ...item, completed: !item.completed } : item
+    );
+    setItems(updatedItems);
+    localStorage.setItem('todo-items', JSON.stringify(updatedItems));
   };
 
   return (
@@ -32,7 +40,7 @@ export default function Container() {
         setInputValue={setInputValue}
         handleClick={handleClick}
       />
-      <List items={items} setItems={setItems} />
+      <List items={items} setItems={setItems} onToggle={handleToggle} />
     </Template>
   );
 }

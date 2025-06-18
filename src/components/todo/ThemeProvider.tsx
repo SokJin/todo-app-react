@@ -1,16 +1,4 @@
-import React, { useEffect, useState, createContext, useContext } from 'react';
-
-type ThemeProviderProps = {
-  isDark: boolean;
-  toggleDarkMode: () => void;
-};
-
-const ThemeContext = createContext<ThemeProviderProps>({
-  isDark: false,
-  toggleDarkMode: () => {},
-});
-
-export const useTheme = () => useContext(ThemeContext);
+import React, { useEffect, useState } from 'react';
 
 export default function ThemeProvider({
   children,
@@ -35,7 +23,7 @@ export default function ThemeProvider({
   };
 
   return (
-    <ThemeContext.Provider value={{ isDark, toggleDarkMode }}>
+    <>
       <button
         onClick={toggleDarkMode}
         className="fixed top-4 right-4 z-50 p-2 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded"
@@ -43,6 +31,6 @@ export default function ThemeProvider({
         {isDark ? 'ライトモード' : 'ダークモード'}
       </button>
       {children}
-    </ThemeContext.Provider>
+    </>
   );
 }

@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default function ThemeProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export const ThemeButton = () => {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -23,14 +19,11 @@ export default function ThemeProvider({
   };
 
   return (
-    <>
-      <button
-        onClick={toggleDarkMode}
-        className="fixed top-4 right-4 z-50 p-2 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded"
-      >
-        {isDark ? 'ライトモード' : 'ダークモード'}
-      </button>
-      {children}
-    </>
+    <button
+      onClick={toggleDarkMode}
+      className="p-2 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded"
+    >
+      {isDark ? 'ライトモード' : 'ダークモード'}
+    </button>
   );
-}
+};

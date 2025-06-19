@@ -1,4 +1,16 @@
-@layer theme, base, components, utilities;
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/preflight.css' layer(base);
 @import 'tailwindcss/utilities.css' layer(utilities);
+
+@layer base {
+  body {
+    color: black;
+    font-family: sans-serif;
+    background-color: white;
+  }
+
+  html.dark body {
+    color: #f0f0f0;
+    background-color: #121212;
+  }
+}

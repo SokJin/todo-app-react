@@ -11,8 +11,9 @@ type ListProps = {
 };
 
 export default function List({ items, setItems, onToggle }: ListProps) {
-  const [editingId, setEditingId] = useState<string | null>(null);
-  const [editText, setEditText] = useState<string>('');
+  const [editing, setEditing] = useState<{ id: string; text: string } | null>(
+    null
+  );
 
   const handleDelete = (id: string) => {
     const newItems = items.filter((item) => item.id !== id);
@@ -20,17 +21,16 @@ export default function List({ items, setItems, onToggle }: ListProps) {
   };
 
   const handleEditStart = (id: string, currentText: string) => {
-    setEditingId(id);
-    setEditText(currentText);
+    setEditing({ id, text: currentText });
   };
 
-  const handleEditSave = (id: string) => {
+  const handleEditSave = () => {
+    if (!editing) return;
     const newItems = items.map((item) =>
-      item.id === id ? { ...item, text: editText } : item
+      item.id === editing.id ? { ...item, text: editing.text } : item
     );
     setItems(newItems);
-    setEditingId(null);
-    setEditText('');
+    setEditing(null);
   };
 
   return (
@@ -40,10 +40,14 @@ export default function List({ items, setItems, onToggle }: ListProps) {
           key={item.id}
           className="flex justify-between items-center px-3 py-2 rounded transition-colors w-full"
         >
-          {editingId === item.id ? (
+          {editing?.id === item.id ? (
             <input
-              value={editText}
-              onChange={(e) => setEditText(e.target.value)}
+              value={editing.text}
+              onChange={(e) =>
+                setEditing(
+                  editing ? { ...editing, text: e.target.value } : null
+                )
+              }
               className="border px-2 py-1 rounded w-full mr-2"
               autoFocus
             />
@@ -64,9 +68,9 @@ export default function List({ items, setItems, onToggle }: ListProps) {
               onToggle={() => onToggle(item.id)}
             />
 
-            {editingId === item.id ? (
+            {editing?.id === item.id ? (
               <button
-                onClick={() => handleEditSave(item.id)}
+                onClick={handleEditSave}
                 className="bg-green-500 p-2 text-white rounded hover:bg-green-600"
                 aria-label="保存"
               >

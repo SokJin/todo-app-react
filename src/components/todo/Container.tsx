@@ -16,12 +16,15 @@ export default function Container() {
     }
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem('todo-items', JSON.stringify(items));
+  }, [items]);
+
   const handleClick: () => void = () => {
     if (inputValue.trim() === '') return;
     const newItem: Item = { id: uuidv4(), text: inputValue, completed: false };
     const newItems = [...items, newItem];
     setItems(newItems);
-    localStorage.setItem('todo-items', JSON.stringify(newItems));
     setInputValue('');
   };
 
@@ -30,7 +33,6 @@ export default function Container() {
       item.id === id ? { ...item, completed: !item.completed } : item
     );
     setItems(updatedItems);
-    localStorage.setItem('todo-items', JSON.stringify(updatedItems));
   };
 
   return (

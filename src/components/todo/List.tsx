@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import StatusToggle from './StatusToggle';
 import { Item } from '@/types/type';
 import { FaTrash, FaEdit, FaSave } from 'react-icons/fa';
+import { clsx } from 'clsx';
 
 type ListProps = {
   items: Item[];
@@ -48,7 +49,10 @@ export default function List({ items, setItems, onToggle }: ListProps) {
             />
           ) : (
             <span
-              className={`flex-1 mr-2 ${item.completed ? 'line-through text-gray-400' : ''}`}
+              className={clsx(
+                'flex-1 mr-2',
+                item.completed && 'line-through text-gray-400'
+              )}
             >
               {item.text}
             </span>

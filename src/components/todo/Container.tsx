@@ -1,30 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Template from './Template';
 import Insert from './Insert';
 import List from './List';
 import { v4 as uuidv4 } from 'uuid';
 import { Item } from '@/types/type';
+import useLocalStorage from '@/hooks/useLocalStorage';
 
 export default function Container() {
-  const [items, setItems] = useState<Item[]>([]);
+  const [items, setItems] = useLocalStorage<Item[]>('todo-items', []);
   const [inputValue, setInputValue] = useState<string>('');
-
-  useEffect(() => {
-    const stored = localStorage.getItem('todo-items');
-    if (stored) {
-      setItems(JSON.parse(stored));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('todo-items', JSON.stringify(items));
-  }, [items]);
 
   const handleClick: () => void = () => {
     if (inputValue.trim() === '') return;
     const newItem: Item = { id: uuidv4(), text: inputValue, completed: false };
-    const newItems = [...items, newItem];
-    setItems(newItems);
+    setItems([...items, newItem]);
     setInputValue('');
   };
 
